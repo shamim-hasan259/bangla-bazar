@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { promises as fs } from "fs";
 import { join } from "path";
 import { NextRequest, NextResponse } from "next/server";

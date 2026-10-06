@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { NextResponse } from "next/server";
 import prisma from "@/index";
 import { connectToDatabase } from "../../../../helpers/server-helpers";

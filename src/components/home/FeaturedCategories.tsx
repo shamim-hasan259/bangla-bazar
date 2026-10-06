@@ -123,12 +123,12 @@ const FeaturedCategories = ({ categories: initialCategories }: FeaturedCategorie
   const categoriesToRender: CategoryItem[] = useMemo(() => {
     return categories.map((cat, index) => {
       let photoSrc = cat.photo;
-      if (!photoSrc || photoSrc.includes("store-media") || photoSrc.includes("unsplash")) {
-        photoSrc = assetList[index % assetList.length];
-      } else if (photoSrc.startsWith("/") || photoSrc.startsWith("http")) {
+      if (photoSrc && (photoSrc.startsWith("/") || photoSrc.startsWith("http"))) {
         photoSrc = photoSrc;
-      } else {
+      } else if (photoSrc && photoSrc.trim() !== "") {
         photoSrc = `/img/categories/${photoSrc}`;
+      } else {
+        photoSrc = assetList[index % assetList.length];
       }
 
       const subList = (cat.subcategories || []).map((sub: any) => ({
