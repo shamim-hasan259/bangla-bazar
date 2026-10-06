@@ -50,9 +50,7 @@ const Setting = () => {
     </div>
   );
 };
-
 export default Setting;
-
 const settingTabListLinks = [
   { title: "Account Setting", value: "account setting" },
   { title: "Business Setting", value: "business setting" },

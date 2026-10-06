@@ -35,7 +35,6 @@ export default async function SellerNotificationsPage() {
 
   const actualSellerId = seller?.id || sellerId || "";
   const initialNotifications = await getSellerNotifications(actualSellerId);
-
   return (
     <div className="container mx-auto px-4 md:px-6 py-4">
       <SellerNotificationsClient
