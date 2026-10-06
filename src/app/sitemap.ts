@@ -1,5 +1,4 @@
 import { MetadataRoute } from "next";
-import prisma from "@/index";
 
 export const dynamic = "force-dynamic";
 
@@ -71,6 +70,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   let productRoutes: MetadataRoute.Sitemap = [];
   try {
+    const { default: prisma } = await import("@/index");
     const products = await prisma.product.findMany({
       where: { status: "Active" },
       select: {
@@ -93,6 +93,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   let categoryRoutes: MetadataRoute.Sitemap = [];
   try {
+    const { default: prisma } = await import("@/index");
     const categories = await prisma.category.findMany({
       select: {
         id: true,
