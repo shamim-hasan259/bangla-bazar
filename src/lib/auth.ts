@@ -13,7 +13,7 @@ const Google = (GoogleProvider as any)?.default || GoogleProvider;
 const Facebook = (FacebookProvider as any)?.default || FacebookProvider;
 
 export const authOptions: NextAuthOptions = {
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET || "default-bangla-bazar-secret-key-12345",
   session: {
     strategy: "jwt",
   },
@@ -243,12 +243,12 @@ export const authOptions: NextAuthOptions = {
     }),
 
     Google({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      clientId: process.env.GOOGLE_CLIENT_ID || "google-client-id-placeholder",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "google-client-secret-placeholder",
     }),
     Facebook({
-      clientId: process.env.FACEBOOK_CLIENT_ID!,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET!,
+      clientId: process.env.FACEBOOK_CLIENT_ID || "facebook-client-id-placeholder",
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET || "facebook-client-secret-placeholder",
     }),
   ],
 
